@@ -1,11 +1,14 @@
+import unittest
 from os import path
 from subprocess import check_output
+
 
 REPO = path.dirname(path.realpath(__file__))
 VAR_FILE = path.join(REPO, 'emoji_vars.sh')
 GENERATE_SCRIPT = path.join(REPO, 'generate.py')
 
-class TestGeneratedFile(object):
+
+class TestGeneratedFile(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.file_vars = set(
@@ -23,3 +26,7 @@ class TestGeneratedFile(object):
         extra_in_file = self.file_vars - self.generated_vars
         assert not extra_in_file, '%d extra emoji in file: %s' % (
             len(extra_in_file), ', '.join(extra_in_file))
+
+
+if __name__ == "__main__":
+    unittest.main()
