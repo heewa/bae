@@ -1,6 +1,8 @@
-Emoji for the BA shell – use emoji as Environment Variables using the same names that Github, Slack, and many others use. Check the [Emoji Cheat Sheet](http://emoji-cheat-sheet.com).
+Emoji for the shell – use emoji as Environment Variables using the same names that Github, Slack, and many others use. Check the [Emoji Cheat Sheet](http://emoji-cheat-sheet.com).
 
 ## Installing
+
+### Bash
 
 Drop the emoji file somewhere:
 
@@ -14,6 +16,22 @@ And include it in your `~/.profile` (preferably) or `~/.bashrc`:
 if [ -e ~/.emoji_vars.sh ]; then
     source ~/.emoji_vars.sh
 fi
+```
+
+### Fish
+
+Drop the emoji file somewhere:
+
+```bash
+curl 'https://raw.githubusercontent.com/heewa/bae/master/emoji_vars.fish' > ~/.emoji_vars.fish
+```
+
+And include it in your `fish.config`:
+
+```bash
+if test -f $HOME/.emoji_vars.fish
+    source $HOME/.emoji_vars.fish
+end
 ```
 
 ## Using
